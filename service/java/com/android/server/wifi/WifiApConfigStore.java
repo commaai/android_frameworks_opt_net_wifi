@@ -246,6 +246,9 @@ class WifiApConfigStore extends StateMachine {
             config.SSID = Build.MODEL;
         }
 
+        // comma hax
+        config.SSID = config.SSID + "-" + Build.SERIAL;
+
         boolean set_security_none = mContext.getResources().getBoolean(
                 org.cyanogenmod.platform.internal.R.bool.config_wifiHotspotSecurityNone);
         config.allowedKeyManagement.set(set_security_none ? KeyMgmt.NONE : KeyMgmt.WPA2_PSK);
