@@ -6366,6 +6366,9 @@ public class WifiStateMachine extends StateMachine implements WifiNative.WifiPno
                 default:
                     return NOT_HANDLED;
             }
+
+            log("EON: Doing WiFi scan due to SupplicantStartedState state change");
+            startScan(ENABLE_WIFI, 0, null, null);
             return HANDLED;
         }
 
